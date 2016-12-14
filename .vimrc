@@ -1,9 +1,6 @@
 " Sample .vimrc file by Martin Brochhaus
 " Additions by Richard Morley
 
-" Setup the statusline
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -21,6 +18,12 @@ endif
 " n...  : where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
+" Set the status line to indicate information...
+" path to file in the buffer
+" modified flag
+" readonly flag
+" help flag
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -29,11 +32,12 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 set pastetoggle=<F2>
 set clipboard=unnamed
 
+set backspace=2
+
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
 " it is next to ``h`` and ``l`` which I use for navigating between tabs.
 let mapleader = " "
-
 
 " Bind nohl
 " Removes highlight of your last search
@@ -92,7 +96,6 @@ vnoremap > >gv  " better indentation
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O molokai.vim https://github.com/... search molokai
 set t_Co=256
 set background=dark
 colorscheme space-vim-dark
@@ -104,6 +107,7 @@ filetype on
 filetype plugin indent on
 syntax on
 
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " Showing line numbers and length
 set number  " show line numbers
@@ -116,12 +120,12 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
 
-" easier formatting of paragraphs
+"" easier formatting of paragraphs
 vmap Q gq
 nmap Q gqap
 
 
-" Useful settings
+"" Useful settings
 set history=700
 set undolevels=700
 
@@ -139,14 +143,38 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-
-" ============================================================================
-" Python IDE Setup
-" ============================================================================
-
+" run powerline
+"set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" Always show statusline
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display a tabline, even if there is only one tab
-set noshowmode "show/hide the default mode text (e.g -- INSERT -- below the statusline)
+"set noshowmode "show/hide the default mode text (e.g -- INSERT -- below the statusline)
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_javascript_checkers = ['jshint']
+
+" Settings for ctrlp
+" cd ~/.vim/bundle
+" git clone https://github.com/kien/ctrlp.vim.git
+"" let g:ctrlp_max_height = 30
+"" set wildignore+=*.pyc
+"" set wildignore+=*_build/*
+"" set wildignore+=*/coverage/*
+
+" RM- USING YouCompleteMe INSEAD OF OTHER AUTO COMPLETION
+
+
+" Using delimitMate
+let delimitMate_expand_cr=1
+let delimitMate_expand_space=1
 
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
@@ -164,3 +192,8 @@ endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+
+"" Adding my custom html snippet macro to the .vimrc!
+let @h='i<!doctype htmlo<html>o<head>o<title></title>o</head>o<body></body>o€kbo</html>'
+

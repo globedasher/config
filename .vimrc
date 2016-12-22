@@ -76,6 +76,8 @@ map <Leader>h <esc>:tabprevious<CR>
 map <Leader>l <esc>:tabnext<CR>
 map <Leader>t <esc>:tabnew<CR>
 
+" open NERDTree
+map <Leader>n <esc>:NERDTree<CR>
 
 " map sort function to a key
 "" vnoremap <Leader>s :sort<CR>
@@ -98,7 +100,7 @@ vnoremap > >gv  " better indentation
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 set t_Co=256
 set background=dark
-colorscheme space-vim-dark
+colorscheme mushroom
 
 
 " Enable syntax highlighting

@@ -1,8 +1,31 @@
 #!/bin/bash
 
+# Update! Maybe I should add a section to ensure the non-free repos for debian
+# are added.
 sudo apt-get update
 
-sudo apt-get install 	libncurses5-dev \
+# Remove all unneeded versions of vim...
+sudo apt-get remove 	vim \
+			vim-runtime \
+			gvim \
+			vim-tiny \
+			vim-common \
+			vim-gui-common \
+			vim-nox\
+
+# Install dependencies for Vim.
+sudo apt-get install	tmux \
+			zsh \
+			htop \
+			tree \
+			git \
+			python-dev \
+    			python3-dev \
+			ruby-dev \
+			lua5.1 \
+			lua5.1-dev \
+			libperl-dev \
+			libncurses5-dev \
 			libgnome2-dev \
 			libgnomeui-dev \
     			libgtk2.0-dev \
@@ -12,32 +35,13 @@ sudo apt-get install 	libncurses5-dev \
 			libx11-dev \
 			libxpm-dev \
 			libxt-dev \
-			python-dev \
-    			python3-dev \
-			ruby-dev \
-			lua5.1 \
-			lua5.1-dev \
-			libperl-dev \
-    			tmux \
-			zsh \
-			htop \
-			tree \
-			git \
 
-sudo apt-get remove 	vim \
-			vim-runtime \
-			gvim \
-			vim-tiny \
-			vim-common \
-			vim-gui-common \
-			vim-nox\
-
+# Change to home directory and clone the vim repository
 cd ~
-
 git clone https://github.com/vim/vim.git .vim/
 
-cd .vim
-
+# Change into the vim directory and compile the application.
+cd ~/.vim
 ./configure --with-features=huge \
             --enable-multibyte \
             --enable-rubyinterp=yes \
@@ -52,7 +56,6 @@ cd .vim
 make VIMRUNTIMEDIR=/usr/share/vim/vim80
 
 cd ~/.vim
-
 sudo make install
 
 # Create the file type plugin folder.

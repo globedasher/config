@@ -14,7 +14,8 @@ sudo apt-get remove 	vim \
 			vim-nox\
 
 # Install dependencies for Vim.
-sudo apt-get install	tmux \
+sudo apt-get install -y	tmux \
+			npm \
 			zsh \
 			htop \
 			tree \

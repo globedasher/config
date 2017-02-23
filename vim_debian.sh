@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#TODO: Question?! Can I run this as root and avoid the sudo calls?
+
 # Update! Maybe I should add a section to ensure the non-free repos for debian
 # are added.
 sudo apt-get update
@@ -15,6 +17,7 @@ sudo apt-get remove 	vim \
 
 # Install dependencies for Vim.
 sudo apt-get install -y	tmux \
+			stterm \
 			npm \
 			zsh \
 			htop \
@@ -36,6 +39,15 @@ sudo apt-get install -y	tmux \
 			libx11-dev \
 			libxpm-dev \
 			libxt-dev \
+
+# TODO: create a shell change here to use zsh, but make the call declaritive...
+sudo chsh -s which zsh
+
+# Install nodejs, bower and nodemon.
+sudo npm install -g nodejs bower nodemon
+
+# Create the missing Debian symlink.
+sudo ln -s /usr/bin/node /usr/bin/nodejs
 
 # Change to home directory and clone the vim repository
 cd ~

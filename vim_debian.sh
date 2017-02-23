@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#TODO: Question?! Can I run this as root and avoid the sudo calls?
+#TODO: Question?! Can/should I run this as root and avoid the sudo calls?
 
 # Update! Maybe I should add a section to ensure the non-free repos for debian
 # are added.
@@ -15,7 +15,7 @@ sudo apt-get remove 	vim \
 			vim-gui-common \
 			vim-nox\
 
-# Install dependencies for Vim.
+# Install my applications and dependencies for Vim.
 sudo apt-get install -y	tmux \
 			stterm \
 			npm \
@@ -41,10 +41,12 @@ sudo apt-get install -y	tmux \
 			libxt-dev \
 
 # TODO: create a shell change here to use zsh, but make the call declaritive...
-sudo chsh -s which zsh
+sudo chsh -s `which zsh`
 
 # Install nodejs, bower and nodemon.
 sudo npm install -g nodejs bower nodemon
+
+# TODO: Install MongoDB...
 
 # Create the missing Debian symlink.
 sudo ln -s /usr/bin/node /usr/bin/nodejs
@@ -64,7 +66,8 @@ cd ~/.vim
             --with-python3-config-dir=/usr/lib/python3.5/config \
             --enable-perlinterp=yes \
             --enable-luainterp=yes \
-            --enable-gui=gtk2 --enable-cscope --prefix=/usr
+	    --enable-cscope \
+	    --prefix=/usr \
 
 make VIMRUNTIMEDIR=/usr/share/vim/vim80
 

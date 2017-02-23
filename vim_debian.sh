@@ -18,6 +18,7 @@ sudo apt-get remove 	vim \
 # Install my applications and dependencies for Vim.
 sudo apt-get install -y	tmux \
 			stterm \
+			xmonad \
 			npm \
 			zsh \
 			htop \

@@ -35,6 +35,11 @@ sudo apt-get install -y	firefox-esr\
 			gimp \
 			irssi \
 
+# The following items are for audio.
+echo "Install audio tools."
+sudo apt-get install -y alsa-tools \
+			alsa-utils \
+
 # The following items are for connectivity.
 echo "Install connectivity tools."
 sudo apt-get install -y connman \

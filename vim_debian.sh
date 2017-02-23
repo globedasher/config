@@ -6,38 +6,49 @@
 # are added.
 
 # Update! 
-echo "Update"
+echo "sudo apt-get update"
 sudo apt-get update
 
 # Remove all unneeded versions of vim...
-sudo apt-get remove 	vim \
+sudo apt-get remove -y 	vim \
 			vim-runtime \
 			gvim \
 			vim-tiny \
 			vim-common \
 			vim-gui-common \
-			vim-nox\
+			vim-nox \
 
-# For the broadcom BCM43142  wifi on my laptop. The non-free debian repos must
-# be enabled.
-sudo apt-get install broadcom-sta-dkms
 
-# Install my applications and dependencies for Vim.
+# I split the following installs into seperate lines for organization sake.
+# Install my applications.
+echo "Install applications."
 sudo apt-get install -y	firefox-esr\
 			tmux \
 			xorg \
 			xmonad \
 			stterm \
 			suckless-tools \
-			npm \
 			zsh \
 			htop \
 			tree \
-			connman \
-			rfkill \
 			git \
 			gimp \
-			python-dev \
+			irssi \
+
+# The following items are for connectivity.
+echo "Install connectivity tools."
+sudo apt-get install -y connman \
+			rfkill \
+			dhcpcd5 \
+
+# For the broadcom BCM43142  wifi on my laptop. The non-free debian repos must
+# be enabled.
+echo "Install laptop wifi driver."
+sudo apt-get install -y broadcom-sta-dkms \
+
+# Required for the Vim buid that occurs below.
+echo "Install dev tools."
+sudo apt-get install -y	python-dev \
     			python3-dev \
 			ruby-dev \
 			lua5.1 \
@@ -53,6 +64,9 @@ sudo apt-get install -y	firefox-esr\
 			libx11-dev \
 			libxpm-dev \
 			libxt-dev \
+
+# Other development modules
+sudo apt-get install -y npm \
 
 # TODO: Install MongoDB...
 #sudo apt-get mongodb-org
@@ -72,6 +86,7 @@ git clone https://github.com/vim/vim.git .vim/
 
 # Change into the vim directory and compile the application.
 cd ~/.vim
+echo "Configure Vim."
 ./configure --with-features=huge \
             --enable-multibyte \
             --enable-rubyinterp=yes \

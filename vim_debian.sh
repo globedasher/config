@@ -3,7 +3,13 @@
 # TODO: Can/should I run this as root and avoid the sudo calls?
 
 # TODO: Maybe I should add a section to ensure the non-free repos for debian
-# are added.
+# are added so I don't have to do that manually.
+
+# MongoDB Repo Addition
+# This adds the key to insert the mongodb repo
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+# Create the file with the mongodb repo
+echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
 
 # Update! 
 echo "sudo apt-get update"
@@ -35,6 +41,9 @@ sudo apt-get install -y	firefox-esr\
 			gimp \
 			irssi \
 
+# Change shell to use zsh
+sudo chsh -s `which zsh`
+
 # The following items are for audio.
 echo "Install audio tools."
 sudo apt-get install -y alsa-tools \
@@ -53,7 +62,8 @@ sudo apt-get install -y broadcom-sta-dkms \
 
 # Required for the Vim buid that occurs below.
 echo "Install dev tools."
-sudo apt-get install -y	python-dev \
+sudo apt-get install -y	mongodb-org \
+			python-dev \
     			python3-dev \
 			ruby-dev \
 			lua5.1 \
@@ -73,18 +83,13 @@ sudo apt-get install -y	python-dev \
 # Other development modules
 sudo apt-get install -y npm \
 
-# TODO: Install MongoDB...
-#sudo apt-get mongodb-org
-
-# Change shell to use zsh
-chsh -s `which zsh`
-
 # Install nodejs, bower and nodemon.
 sudo npm install -g nodejs bower nodemon
 
 # Create the missing Debian symlink.
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 
+# Install VIM
 # Change to home directory and clone the vim repository
 cd ~
 git clone https://github.com/vim/vim.git .vim/

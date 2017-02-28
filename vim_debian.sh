@@ -40,6 +40,12 @@ sudo apt-get install -y	firefox-esr\
 			git \
 			gimp \
 			irssi \
+			ufw \
+
+# Basic config of the ufw firewall
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 
 # Change shell to use zsh
 sudo chsh -s `which zsh`

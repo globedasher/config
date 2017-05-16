@@ -4,8 +4,8 @@ Config {
      font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
-   , position =     Bottom
-   , border =       TopB
+   , position =     Top
+   , border =       BottomB
    , borderColor =  "#646464"
 
    -- layout
@@ -96,7 +96,7 @@ Config {
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ABABAB>%Y/%m/%d %l:%M:%S%P</fc>" "date" 10
 
         ]
    }

@@ -7,6 +7,9 @@ set expandtab
 set autoindent
 set fileformat=unix
 
+let python_highlight_all=1
+set foldmethod=indent
+
 set textwidth=79   " width of document (used by gd)
 "set formatoptions+=t   " do automatically wrap text when typing
 

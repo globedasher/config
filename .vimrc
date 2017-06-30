@@ -76,8 +76,8 @@ map <Leader>h <esc>:tabprevious<CR>
 map <Leader>l <esc>:tabnext<CR>
 map <Leader>t <esc>:tabnew<CR>
 
-" open NERDTree
-map <Leader>n <esc>:NERDTree<CR>
+" open explorer
+map <Leader>n <esc>:Ex<CR>
 
 " map sort function to a key
 "" vnoremap <Leader>s :sort<CR>
@@ -158,7 +158,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint']

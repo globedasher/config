@@ -15,7 +15,7 @@ cd ~/.vim/pack/my-plugins/start/
 
 # Clone the plugins from github.
 git clone https://github.com/raimondi/delimitmate
-git clone https://github.com/scrooloose/nerdtree
+# git clone https://github.com/scrooloose/nerdtree
 git clone https://github.com/scrooloose/syntastic
 git clone https://github.com/tpope/vim-surround
 git clone https://github.com/tpope/vim-fugitive

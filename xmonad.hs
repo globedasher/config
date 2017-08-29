@@ -16,7 +16,9 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Main configuration, override the defaults to your liking.
 myConfig = defaultConfig 
-    { terminal = "stterm -e tmux"
+    { terminal = "stterm"
     , modMask = mod4Mask 
-    , borderWidth = 0
+    , normalBorderColor = "black"
+    , focusedBorderColor = "darkgreen"
+    , borderWidth = 2
     }

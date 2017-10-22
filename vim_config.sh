@@ -6,8 +6,8 @@ mkdir -p ~/.vim/ftplugin/
 cp ~/.myconfig/ftplugin/* ~/.vim/ftplugin/
 
 # Create the colors folder.
-mkdir ~/.vim/colors/
-cp ~/.myconfig/mushroom.vim ~/.vim/colors/
+mkdir -p ~/.vim/colors/
+cp ~/.myconfig/colors/* ~/.vim/colors/
 
 # Create the folders for the plugin packages.
 mkdir -p ~/.vim/pack/my-plugins/start/

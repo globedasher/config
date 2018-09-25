@@ -52,6 +52,10 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
+# If not running interactively, do not do anything
+[[ $- != *i*  ]] && return
+[[ -z "$TMUX"  ]] && exec tmux
+
 ## Alias section 
 alias ls="ls --color=auto"
 alias cp="cp -i"                                                # Confirm before overwriting something

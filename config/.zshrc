@@ -54,7 +54,6 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 
 # If not running interactively, do not do anything
 [[ $- != *i*  ]] && return
-[[ -z "$TMUX"  ]] && exec tmux
 
 ## Alias section 
 alias ls="ls --color=auto"
@@ -72,10 +71,15 @@ colors
 # enable substitution for prompt
 setopt prompt_subst
 
+# Use the zsh prompt system
+autoload -Uz promptinit
+promptinit 
+prompt elite
+
 # Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
- #PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
+# PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
 # Maia prompt
-PROMPT="%B%{$fg[green]%} %(4~|%-1~/.../%2~|%~)%u%b >%{$fg[green]%}>%B%(?.%{$fg[green]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
+#PROMPT="%B%{$fg[green]%} %(4~|%-1~/.../%2~|%~)%u%b >%{$fg[green]%}>%B%(?.%{$fg[green]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
 # Print a greeting message when shell is started
 echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
 ## Prompt on right side:
@@ -161,6 +165,9 @@ export LESS=-r
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Start the aws cli completer at zsh startup
+source /usr/bin/aws_zsh_completer.sh  
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up

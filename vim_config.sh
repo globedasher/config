@@ -3,11 +3,11 @@
 # Post install config for Vim
 # Create the file type plugin folder.
 mkdir -p ~/.vim/ftplugin/
-cp ~/.myconfig/ftplugin/* ~/.vim/ftplugin/
+cp -r ./ftplugin/* ~/.vim/ftplugin
 
 # Create the colors folder.
 mkdir -p ~/.vim/colors/
-cp ~/.myconfig/colors/* ~/.vim/colors/
+cp -r ./colors/* ~/.vim/colors
 
 # Create the folders for the plugin packages.
 mkdir -p ~/.vim/pack/my-plugins/start/

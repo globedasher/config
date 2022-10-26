@@ -3,7 +3,7 @@
 pacman -S git tmux \
     vim \
     ranger \
-    chromium \
+    firefox \
     zsh \
     zsh-syntax-highlighting \
     zsh-history-substring-search \

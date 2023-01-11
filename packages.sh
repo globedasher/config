@@ -1,11 +1,15 @@
 #!/bin/bash
 
-pacman -S git tmux \
+sudo pacman -S tmux \
     vim \
     ranger \
     firefox \
-    zsh \
-    zsh-syntax-highlighting \
-    zsh-history-substring-search \
-    zsh-autosuggestions \
     nmap \
+    fish \
+    steam \
+    keepassxc \
+    libreoffice \
+
+pamac build rot8 \
+    signal-desktop \
+

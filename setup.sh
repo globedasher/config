@@ -1,17 +1,19 @@
 #!/bin/sh
 
-# Post install config for Vim
-# Create the file type plugin folder.
-mkdir -p ~/.vim/ftplugin/
-cp -r ./ftplugin/* ~/.vim/ftplugin
+# Install packages
+sudo apt-get install tmux \
+    neovim \
+    ranger \
+    nmap \
+    fish \
 
-# Create the colors folder.
-mkdir -p ~/.vim/colors/
-cp -r ./colors/* ~/.vim/colors
+# Copy the local config files
+cp -a ./nvim/ ~/.config/
+cp -a ./tmux/ ~/.config/
 
 # Create the folders for the plugin packages.
-mkdir -p ~/.vim/pack/my-plugins/start/
-cd ~/.vim/pack/my-plugins/start/
+mkdir -p ~/.config/nvim/pack/my-plugins/start/
+cd ~/.config/nvim/pack/my-plugins/start/
 
 # Clone the plugins from github.
 git clone https://github.com/raimondi/delimitmate

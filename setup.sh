@@ -1,11 +1,15 @@
 #!/bin/sh
 
 # Install packages
-sudo apt-get install tmux \
+sudo pacman -S tmux \
+    firefox \
     neovim \
     ranger \
     nmap \
     fish \
+    proton-vpn-gtk-app \
+
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 # Copy the local config files
 cp -a ./nvim/ ~/.config/

@@ -102,7 +102,7 @@ vnoremap > >gv  " better indentation
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 set t_Co=256
 set background=dark
-colorscheme mushroom
+colorscheme ceudah
 
 
 " Enable syntax highlighting

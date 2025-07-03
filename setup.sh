@@ -14,6 +14,7 @@ sudo pacman -S tmux \
     hyprlock \
     hypridle \
     base-devel \
+    brightnessctl \
 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 

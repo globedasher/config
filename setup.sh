@@ -9,6 +9,7 @@ sudo pacman -S tmux \
     fish \
     proton-vpn-gtk-app \
     otf-font-awesome \
+    signal-desktop \
     powerline \
     powerline-fonts \
     hyprlock \

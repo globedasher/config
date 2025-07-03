@@ -16,9 +16,7 @@ endif
 " :20   : up to 20 lines of command-line history will be remembered
 " %     : saves and restores the buffer list
 " n...  : where to save the viminfo files
-"
-" UNSET this!
-" set viminfo='10,\"100,:20,%,n~/.viminfo
+"set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " Set the status line to indicate information...
 " path to file in the buffer
@@ -31,7 +29,7 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 set clipboard=unnamed
 
 set backspace=2

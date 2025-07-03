@@ -8,6 +8,7 @@ sudo pacman -S tmux \
     nmap \
     fish \
     proton-vpn-gtk-app \
+    otf-font-awesome \
 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 

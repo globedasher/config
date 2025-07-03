@@ -13,6 +13,7 @@ sudo pacman -S tmux \
     powerline-fonts \
     hyprlock \
     hypridle \
+    base-devel \
 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 

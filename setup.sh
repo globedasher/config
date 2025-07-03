@@ -9,12 +9,16 @@ sudo pacman -S tmux \
     fish \
     proton-vpn-gtk-app \
     otf-font-awesome \
+    powerline \
+    powerline-fonts \
 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 # Copy the local config files
 cp -a ./nvim/ ~/.config/
+cp -a ./hypr/ ~/.config/
 cp -a ./tmux/ ~/.config/
+cp -a ./waybar/ ~/.config/
 
 # Create the folders for the plugin packages.
 mkdir -p ~/.config/nvim/pack/my-plugins/start/
